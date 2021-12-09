@@ -1,0 +1,376 @@
+%%% template.tex
+%%% This is a template for making up an AMS-LaTeX file
+%%% Version of February 12, 2011
+%%%---------------------------------------------------------
+%%% The following command chooses the default 10 point type.
+%%% To choose 12 point, change it to
+\documentclass[12pt]{amsart}
+
+%%% The following command loads the amsrefs package, which will be
+%%% used to create the bibliography:
+\usepackage[lite]{amsrefs}
+
+%%% The following command defines the standard names for all of the
+%%% special symbols in the AMSfonts package, listed in
+%%% http://www.ctan.org/tex-archive/info/symbols/math/symbols.pdf
+\usepackage{amssymb}
+
+%%% The following commands allow you to use \Xy-pic to draw
+%%% commutative diagrams.  (You can omit the second line if you want
+%%% the default style of the nodes to be \textstyle.)
+\usepackage[all,cmtip]{xy}
+\let\objectstyle=\displaystyle
+
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{url}
+
+%\usepackage[round]{natbib} % for \citep macro
+%\bibliographystyle{apalike}
+%
+%\usepackage{xurl}
+
+%%% If you'll be importing any graphics, uncomment the following
+%%% line.  (Note: The spelling is correct; the package graphicx.sty is
+%%% the updated version of the older graphics.sty.)
+% \usepackage{graphicx}
+
+%%% This part of the file (after the \documentclass command,
+%%% but before the \begin{document}) is called the ``preamble''.
+%%% This is where we put our macro definitions.
+
+%%% Comment out (or delete) any of these that you don't want to use.
+\newcommand{\tensor}{\otimes}
+\newcommand{\homotopic}{\simeq}
+\newcommand{\homeq}{\cong}
+\newcommand{\iso}{\approx}
+
+\DeclareMathOperator{\ho}{Ho}
+\DeclareMathOperator*{\colim}{colim}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\W}{\mathcal{W}}
+
+\newcommand{\itilde}{\tilde{\imath}}
+\newcommand{\jtilde}{\tilde{\jmath}}
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+
+
+
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%% The Theorem environments:
+%%%
+%%%
+%%% The following commands set it up so that:
+%%% 
+%%% All Theorems, Corollaries, Lemmas, Propositions, Definitions,
+%%% Remarks, Examples, Notations, and Terminologies  will be numbered
+%%% in a single sequence, and the numbering will be within each
+%%% section.  Displayed equations will be numbered in the same
+%%% sequence. 
+%%% 
+%%% 
+%%% Theorems, Propositions, Lemmas, and Corollaries will have the most
+%%% formal typesetting.
+%%% 
+%%% Definitions will have the next level of formality.
+%%% 
+%%% Remarks, Examples, Notations, and Terminologies will be the least
+%%% formal.
+%%% 
+%%% Theorem:
+%%% \begin{thm}
+%%% 
+%%% \end{thm}
+%%% 
+%%% Corollary:
+%%% \begin{cor}
+%%% 
+%%% \end{cor}
+%%% 
+%%% Lemma:
+%%% \begin{lem}
+%%% 
+%%% \end{lem}
+%%% 
+%%% Proposition:
+%%% \begin{prop}
+%%% 
+%%% \end{prop}
+%%% 
+%%% Definition:
+%%% \begin{defn}
+%%% 
+%%% \end{defn}
+%%% 
+%%% Remark:
+%%% \begin{rem}
+%%% 
+%%% \end{rem}
+%%% 
+%%% Example:
+%%% \begin{ex}
+%%% 
+%%% \end{ex}
+%%% 
+%%% Notation:
+%%% \begin{notation}
+%%% 
+%%% \end{notation}
+%%% 
+%%% Terminology:
+%%% \begin{terminology}
+%%% 
+%%% \end{terminology}
+%%% 
+%%%       Theorem environments
+
+% The following causes equations to be numbered within sections
+\numberwithin{equation}{section}
+
+% We'll use the equation counter for all our theorem environments, so
+% that everything will be numbered in the same sequence.
+
+%       Theorem environments
+
+\theoremstyle{plain} %% This is the default, anyway
+\newtheorem{theorem}[equation]{Theorem}
+%\newtheorem{theorem}{Theorem}[]
+\newtheorem{cor}[equation]{Corollary}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{prop}[equation]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+%\newtheorem{definition}{Definition}
+\newtheorem{statement}[equation]{Statement}
+%\newtheorem{proof}{{\bf Proof:}}{\hfill\rule{2mm}{2mm}}
+
+\theoremstyle{remark}
+\newtheorem{rem}[equation]{Remark}
+\newtheorem{ex}[equation]{Example}
+\newtheorem{notation}[equation]{Notation}
+\newtheorem{terminology}[equation]{Terminology}
+
+
+
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+\begin{document}
+
+%%% In the title, use a double backslash "\\" to show a linebreak:
+%%% Use one of the following two forms:
+%%% \title{Text of the title}
+%%% or
+%%% \title[Short form for the running head]{Text of the title}
+\title{Equivalence of axiom of choice}
+
+
+%%% If there are multiple authors, they're described one at a time:
+%%% First author: \author{} \address{} \curraddr{} \email{} \thanks{}
+%%% Second author: \author{} \address{} \curraddr{} \email{} \thanks{}
+%%% Third author: \author{} \address{} \curraddr{} \email{} \thanks{}
+\author{Sibo WANG}
+
+%%% In the address, show linebreaks with double backslashes:
+\address{}
+
+%%% Current address is optional.
+% \curraddr{}
+
+%%% Email address is optional.
+% \email{}
+
+
+%%% If there's a second author:
+% \author{}
+% \address{}
+% \curraddr{}
+% \email{}
+
+
+%%% To have the current date inserted, use \date{\today}:
+\date{}
+
+%%% To include an abstract, uncomment the following two lines and type
+%%% the abstract in between them:
+% \begin{abstract}
+% \end{abstract}
+
+
+\maketitle
+
+%%% To include a table of contents, uncomment the following line:
+% \tableofcontents
+
+
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%% Start the body of the paper here!  E.G., maybe use:
+%%% \section{Introduction}
+%%% \label{sec:intro}
+
+%%% For a numbered display, use
+%%% \begin{equation}
+%%%   \label{something}
+%%%   The display goes here
+%%% \end{equation}
+%%% and you can refer to it as \eqref{something}.
+
+%%% For an unnumbered display, use
+%%% \begin{equation*}
+%%%   The display goes here
+%%% \end{equation*}
+
+%%% To import a graphics file, you must have said
+%%% \usepackage{graphicx}
+%%% in the preamble (i.e., before the \begin{document}).
+%%% Putting it into a figure environment enables it to float to the
+%%% next page if there isn't enough room for it on the current page.
+%%% The \label command must come after the \caption command.
+% \begin{figure}[h]
+%   \includegraphics{filename}
+%   \caption{Some caption}
+%   \label{somelabel}
+% \end{figure}
+
+\section{Motivation}
+%\label{sec:intro}
+In this notes, rigorous proofs of some statements, which are equivalent with axiom of choice, will be shown .  
+
+\section{Axiom of choice}
+%\label{sec:intro}
+
+\begin{statement}
+(Axiom of choice) \textit{For every non-empty set $\mathcal{A}$, there exists a choice function $f: \mathcal{P} (\mathcal{A}) \to \mathcal{A}$, and $f(a) \in a$ for each $a \in \mathcal{P} (\mathcal{A})$. } \label{statement:Axiom of choice}
+\end{statement}
+
+\section{Hausdorff maximal principle}
+
+\begin{definition}
+Given a  non-empty set $\mathcal{A}$ and $\mathcal{F} \subseteq \mathcal{P}(\mathcal{A})$, we define $\mathcal{B}^*=\{x \in \mathcal{A} \setminus \mathcal{B}: \mathcal{B} \cup \{x\} \in  \mathcal{F} \}$ for every $\mathcal{B} \in \mathcal{F}$. \label{definition:F}
+\end{definition}
+
+\begin{definition}
+Given a choice function $f$ in \hyperref[statement:Axiom of choice]{Statement \ref*{statement:Axiom of choice}} and $\mathcal{F}$ in \hyperref[definition:F]{Definition \ref*{definition:F}}, we define a function $F: \mathcal{F} \to \mathcal{F}$ \label{definition:B_star}
+	\begin{equation*}
+	    F(\mathcal{B}) =
+	    \begin{cases*}
+		      \mathcal{B} \cup {f(\mathcal{B}^*)} & if $\mathcal{B}^* \neq  \varnothing$ \\
+		     \mathcal{B}       & otherwise
+	    \end{cases*}
+	 \end{equation*}
+\end{definition}
+
+\begin{definition}
+Given a non-empty set $X$, a sub-collection $\mathcal{F} \subseteq \mathcal{P}(X)$ and \hyperref[definition:B_star]{function $F$}: $\mathcal{F} \to \mathcal{F}$, a subset  $\mathcal{T} \subseteq \mathcal{F}$ is called a tower of $\mathcal{F}$ if and only if $\mathcal{T}$ has the following three properties: \label{definition:tower}
+	\begin{equation*}
+	    \varnothing \in \mathcal{T} \tag{3.3.1}\label{definition:3.3.1}
+	\end{equation*}
+	\begin{equation*}
+	   \text{if }\mathcal{A} \in \mathcal{T}, \text{ then } F(\mathcal{A}) \in \mathcal{T} \tag{3.3.2}\label{definition:3.3.2}
+	\end{equation*}
+	\begin{equation*}
+	    \text{if }\mathcal{A} \subset \mathcal{T} \text{and } (\mathcal{A}, \subseteq) \text{ is a chain, then } \bigcup_{a \in \mathcal{A}}a \in \mathcal{T} \tag{3.3.3}\label{definition:3.3.3}
+	\end{equation*}
+\end{definition}
+
+\begin{lemma}
+Given a non-empty set $X$, if a sub-collection $\mathcal{F} \subseteq \mathcal{P}(X)$ has the following two properties: \label{lemma:FF}
+	\begin{equation*}
+	    \varnothing \in \mathcal{F} \tag{3.4.1}\label{lemma:3.4.1}
+	\end{equation*}
+	\begin{equation*}
+	    \text{if }\mathcal{A} \subset \mathcal{F} \text{and } (\mathcal{A}, \subseteq) \text{ is a chain, then } \bigcup_{a \in \mathcal{A}}a \in \mathcal{F} \tag{3.4.2}\label{lemma:3.4.2}
+	\end{equation*}
+then there is $\mathcal{M} \in \mathcal{F}$ such that $\mathcal{M} \cup \{x\} \notin \mathcal{F}$  for every $x \in X \setminus \mathcal{M}$. 
+\end{lemma}
+
+\begin{proof}
+Given $\mathcal{F}$ and a \hyperref[definition:B_star]{function $F$}, we define 
+$$\mathcal{T}_0 = \bigcap \{ \mathcal{T} \subseteq  \mathcal{F}: \mathcal{T} \text{ is a tower of }\mathcal{F}\}$$
+We can verify $\mathcal{T}_0$ is a tower by mathematical induction. \\
+Next our target is to prove $(\mathcal{T}_0, \subseteq)$ is a totally ordered set.     \\
+We find an element $C \in \mathcal{T}_0$ such that $C$ is a comparable element, i.e. for each $t \in \mathcal{T}_0 \setminus \{{C}\}$, $t \subset {C}$ or $t \supset {C}$. Indeed $C$ is well defined, because $\varnothing \in \mathcal{T}_0$. From ${C}$, we define 
+$$\mathcal{T}_C = \{ t \in \mathcal{T}_0: t \subset C \} \bigcup \{ C \} \bigcup \{ F(C) \} \bigcup \{ t \in \mathcal{T}_0: F(C) \subset t \}$$
+It is trivial to see that $\mathcal{T}_C \subseteq \mathcal{T}_0$. \\
+We can prove $\mathcal{T}_C$ is a tower by \hyperref[definition:tower]{definition  \ref*{definition:tower}}.  \\
+\hyperref[definition:3.3.1]{(\ref*{definition:3.3.1})}: $\varnothing \subseteq C$, so $\varnothing \in \mathcal{T}_C$. \\  
+\hyperref[definition:3.3.2]{(\ref*{definition:3.3.2})}: For each $x \in \mathcal{T}_C$, $x \in \mathcal{T}_0$ and $F(x) \in \mathcal{T}_0$, because $\mathcal{T}_C \subseteq \mathcal{T}_0$. If $x \subset C$, then $F(x) \subseteq C$, thus $F(x) \in \mathcal{T}_C$; if $x \supset C $, then $F(C) \subseteq F(x)$, thus $F(x) \in \mathcal{T}_C$. \\
+\hyperref[definition:3.3.3]{(\ref*{definition:3.3.3})}: If there is a chain $(\mathcal{D}, \subseteq)$ in $\mathcal{T}_C$ and $e = \bigcup_{d \in \mathcal{D}}d $, then $e \in \mathcal{T}_0$, because $\mathcal{T}_C \subseteq \mathcal{T}_0$. If $d \subseteq C$ for each $d \in \mathcal{D}$, then $e \subseteq C$, thus $e \in \mathcal{T}_C$; if $C \subseteq d$ for some $d \in \mathcal{D}$, then $C \subseteq e$, then $F(C) \subseteq e$, thus $e \in \mathcal{T}_C$. \\
+We can get $\mathcal{T}_C = \mathcal{T}_0$ because $\mathcal{T}_0$ is the minimal tower.  \\
+We define \\
+$$U = \{ C \in \mathcal{T}_0: C \text{ is a comparable element}\}$$
+It is trivial to see that $U \subseteq \mathcal{T}_0$. \\
+We can prove $U$ is a tower by \hyperref[definition:tower]{definition  \ref*{definition:tower}}.  \\
+\hyperref[definition:3.3.1]{(\ref*{definition:3.3.1})}: $\varnothing$ is subset of any set. \\  
+\hyperref[definition:3.3.2]{(\ref*{definition:3.3.2})}: From definition of $\mathcal{T}_C$, we know $F(x)$ is a comparable element in $\mathcal{T}_C$, so $F(x)$ is a comparable element in $\mathcal{T}_0$ as well. \\
+\hyperref[definition:3.3.3]{(\ref*{definition:3.3.3})}: For any chain $(\mathcal{D}, \subseteq)$ in $U$ and $e = \bigcup_{d \in \mathcal{D}}d$, $e \in U$. Because for all $u \in U$, u is comparable with each other. \\
+We finish proving $U = \mathcal{T}_0$ and $(\mathcal{T}_0, \subseteq)$ is a totally ordered set.  \\
+We define  
+$$\mathcal{M} = \bigcup_{t \in \mathcal{T}_0}t $$
+Because $(\mathcal{T}_0, \subseteq)$ is a totally ordered set, $\mathcal{M} \in \mathcal{T}_0$. Suppose $\mathcal{M}^*\neq \varnothing$, then $\mathcal{M} \subset F(\mathcal{M})$, which would violate the definition of $\mathcal{M}$. Therefore, $\mathcal{M}^*= \varnothing$ and $\mathcal{M}$ is what we want. 
+\end{proof}
+
+\begin{statement}
+\label{statement:Hausdorff maximal principle}
+(Hausdorff maximal principle) \textit{For every partially ordered set $(\mathcal{S}, \leq)$, there is a chain $\mathcal{M}$, such that $\mathcal{M} \cup \{s\}$ is not a chain for every $s \in \mathcal{S} \setminus \mathcal{M}$. } 
+\end{statement}
+
+\begin{theorem}
+\hyperref[statement:Axiom of choice]{Axiom of choice} implies \hyperref[statement:Hausdorff maximal principle]{Hausdorff maximal principle}.
+\end{theorem}
+
+\begin{proof}
+Given a partially ordered set $(\mathcal{S}, \subseteq)$ and let $\mathcal{F}$ denote the set of all chains in $\mathcal{S}$. We can verify that $\mathcal{F}$ has two properties in \hyperref[lemma:FF]{Lemma \ref*{lemma:FF}}: \\
+\hyperref[lemma:3.4.1]{(\ref*{lemma:3.4.1})}: $\varnothing$ is a chain. \\  
+\hyperref[lemma:3.4.2]{(\ref*{lemma:3.4.2})}: For any chain $(\mathcal{D}, \subseteq)$ in $\mathcal{F}$ and $e = \bigcup_{d \in \mathcal{D}}d$, $e \in \mathcal{F}$. Because for all $u \in \mathcal{F}$, u is comparable with each other. \\
+Therefore, the chain $\mathcal{M}$ can found like \hyperref[lemma:FF]{Lemma \ref*{lemma:FF}}. 
+\end{proof}
+
+\section{Zorn's Lemma}
+
+\begin{statement}
+\label{statement:Zorn's Lemma}
+(Zorn's Lemma) \textit{Given a partially ordered set $(\mathcal{S}, \subseteq)$, if every chain of $(\mathcal{S}, \subseteq)$ has an upper bound, then there is a maximal element $m$ for $\mathcal{S}$. }
+\end{statement}
+
+\begin{theorem}
+\hyperref[statement:Hausdorff maximal principle]{Hausdorff maximal principle} implies \hyperref[statement:Zorn's Lemma]{Zorn's Lemma}.
+\end{theorem}
+
+\begin{proof}
+Let $(\mathcal{S}, \subseteq)$ be the partially ordered set, then we can get a maximal chain  $\mathcal{M}$ in $(\mathcal{S}, \subseteq)$ by \hyperref[statement:Hausdorff maximal principle]{Hausdorff maximal principle}. Let $m$ be an upper bound for $\mathcal{M}$. Then $\mathcal{M} \cup \{m\} = \mathcal{M}$. Therefore, $m$ is a maximal element for $\mathcal{S}$. 
+\end{proof}
+
+\section{Well-ordering principle}
+TBA
+
+\section{Tychonoff's theorem}
+TBA
+
+%%% -------------------------------------------------------------------
+%%% -------------------------------------------------------------------
+%%% This is where we create the bibliography.
+
+\begin{bibdiv}
+  	\begin{biblist}
+  	
+\url(http://www.math.uwaterloo.ca/~nspronk/math453/AofC.pdf)\\
+\url(http://www.math.toronto.edu/ivan/mat327/docs/notes/11-choice.pdf)
+
+	\end{biblist}
+\end{bibdiv}
+
+\end{document}
