@@ -1,0 +1,282 @@
+\documentclass[12pt]{article}
+
+\begin{filecontents}[overwrite]{mybib.bib}
+@misc{Spronk.2019,
+ author = {{Nico Spronk}},
+ year   = {2019},
+ title  = {Axiom of Choice et al},
+ note   = {\url{http://www.math.uwaterloo.ca/~nspronk/math453/AofC.pdf}}
+}
+\end{filecontents}
+
+%%% The following command loads the amsrefs package, which will be
+%%% used to create the bibliography:
+%\usepackage[lite]{amsrefs}
+
+%%% The following command defines the standard names for all of the
+%%% special symbols in the AMSfonts package, listed in
+%%% http://www.ctan.org/tex-archive/info/symbols/math/symbols.pdf
+\usepackage{amssymb}
+
+%%% The following commands allow you to use \Xy-pic to draw
+%%% commutative diagrams.  (You can omit the second line if you want
+%%% the default style of the nodes to be \textstyle.)
+\usepackage[all,cmtip]{xy}
+\let\objectstyle=\displaystyle
+
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{url}
+
+\usepackage{amsthm}
+\let\proof\relax
+\let\endproof\relax
+
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\fancyfoot[C]{Page \thepage\ of \pageref*{LastPage}}
+\pagestyle{fancy}
+
+\usepackage{filemod}
+
+\usepackage{natbib} % for \citep macro
+\bibliographystyle{apalike}
+\usepackage{xurl}
+
+%\usepackage{enumitem,showframe}
+
+%%% If you'll be importing any graphics, uncomment the following
+%%% line.  (Note: The spelling is correct; the package graphicx.sty is
+%%% the updated version of the older graphics.sty.)
+% \usepackage{graphicx}
+
+%%% This part of the file (after the \documentclass command,
+%%% but before the \begin{document}) is called the ``preamble''.
+%%% This is where we put our macro definitions.
+
+%%% Comment out (or delete) any of these that you don't want to use.
+\newcommand{\tensor}{\otimes}
+\newcommand{\homotopic}{\simeq}
+\newcommand{\homeq}{\cong}
+\newcommand{\iso}{\approx}
+
+\DeclareMathOperator{\ho}{Ho}
+\DeclareMathOperator*{\colim}{colim}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\W}{\mathcal{W}}
+
+\newcommand{\itilde}{\tilde{\imath}}
+\newcommand{\jtilde}{\tilde{\jmath}}
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+
+%\newcommand{\updateinfo}[1][\today]{\par\vfill\hfill{\script‌​size\color{gray}Last updated on #1}}
+
+% The following causes equations to be numbered within sections
+\numberwithin{equation}{section}
+
+% We'll use the equation counter for all our theorem environments, so
+% that everything will be numbered in the same sequence.
+
+%       Theorem environments
+
+\theoremstyle{plain} %% This is the default, anyway
+\newtheorem{theorem}[equation]{Theorem}
+%\newtheorem{theorem}{Theorem}[]
+\newtheorem{cor}[equation]{Corollary}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{prop}[equation]{Proposition}
+\newtheorem{statement}[equation]{Statement}
+
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+%\newtheorem{definition}{Definition}
+%\newtheorem{proof}{{\bf Proof:}}{\hfill\rule{2mm}{2mm}}
+
+\theoremstyle{remark}
+\newtheorem{rem}[equation]{Remark}
+\newtheorem{ex}[equation]{Example}
+\newtheorem{notation}[equation]{Notation}
+\newtheorem{terminology}[equation]{Terminology}
+
+\newenvironment{proof}{{\bf Proof:}}{\hfill\rule{2mm}{2mm}}
+
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+\begin{document}
+
+%%% In the title, use a double backslash "\\" to show a linebreak:
+%%% Use one of the following two forms:
+%%% \title{Text of the title}
+%%% or
+%%% \title[Short form for the running head]{Text of the title}
+\title{Equivalence of definitions of closure of topological subspace}
+
+
+%%% If there are multiple authors, they're described one at a time:
+%%% First author: \author{} \address{} \curraddr{} \email{} \thanks{}
+%%% Second author: \author{} \address{} \curraddr{} \email{} \thanks{}
+%%% Third author: \author{} \address{} \curraddr{} \email{} \thanks{}
+\author{Sibo WANG}
+
+%%% In the address, show linebreaks with double backslashes:
+%\address{}
+
+%%% Current address is optional.
+% \curraddr{}
+
+%%% Email address is optional.
+% \email{}
+
+
+%%% If there's a second author:
+% \author{}
+% \address{}
+% \curraddr{}
+% \email{}
+
+
+%%% To have the current date inserted, use \date{\today}:
+\date{}
+
+%%% To include an abstract, uncomment the following two lines and type
+%%% the abstract in between them:
+% \begin{abstract}
+% \end{abstract}
+
+
+\maketitle
+
+%%% To include a table of contents, uncomment the following line:
+% \tableofcontents
+
+
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%% Start the body of the paper here!  E.G., maybe use:
+%%% \section{Introduction}
+%%% \label{sec:intro}
+
+%%% For a numbered display, use
+%%% \begin{equation}
+%%%   \label{something}
+%%%   The display goes here
+%%% \end{equation}
+%%% and you can refer to it as \eqref{something}.
+
+%%% For an unnumbered display, use
+%%% \begin{equation*}
+%%%   The display goes here
+%%% \end{equation*}
+
+%%% To import a graphics file, you must have said
+%%% \usepackage{graphicx}
+%%% in the preamble (i.e., before the \begin{document}).
+%%% Putting it into a figure environment enables it to float to the
+%%% next page if there isn't enough room for it on the current page.
+%%% The \label command must come after the \caption command.
+% \begin{figure}[h]
+%   \includegraphics{filename}
+%   \caption{Some caption}
+%   \label{somelabel}
+% \end{figure}
+
+\section{Motivation}
+%\label{sec:intro}
+\textit{Closure} in topology is an essential concept and it has various definitions. In this note, equivalence of those definitions will be proved.
+
+\section{Equivalence of definitions of closure of topological subspace}
+%\label{sec:intro}
+
+\begin{lemma}
+Given a topology space $(X, \mathcal{T})$. Infinite intersection of closed set in $\mathcal{T}$ is a closed set. \label{lemma:intersection of closed set is closed set}
+\end{lemma}
+
+\begin{proof}
+(De Morgan's laws)
+\end{proof}
+
+\begin{definition}
+Given a topology space $(X, \mathcal{T})$, for $A \subseteq X$, a point $x \in X$ is called \textit{a limit point of A} if for each $B \in \{B: x \in B \in \mathcal{T} \}, B \cap A \neq \varnothing$. \label{definition:limit point}
+\end{definition}
+
+\begin{lemma}
+Given a topology space $(X, \mathcal{T})$ and $A \subseteq X$. Let $A'$ denote the set only containing all limit points of $A$, then $A \cup A'$ is closed.  \label{lemma:limit point set is closed}
+\end{lemma}
+
+\begin{proof}
+To be continued
+\end{proof}
+
+\begin{notation}
+$\overline{A}$: closure of $A$ in a topology space $(X, \mathcal{T})$. 
+\end{notation}
+
+\begin{theorem}
+	The following definitions are equivalent:
+	\begin{enumerate}
+		\item  Let $A'$ denote the set of all limit points of $A$, then $\overline{A} = A \bigcup A'$. \label{definition:closure 1}
+		\item $\overline{A} = \bigcap \{A \subseteq B: \text{B is closed in }X\}$ \label{definition:closure 2}
+		\item $\overline{A}$ is the smallest closed set containing $A$.   
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\begin{description}
+	\item[$1 \Rightarrow 2$:] On the one hand, given $A$, for every $B \in \{A \subseteq B: \text{B is closed in }X\}$, $\overline{A} \subseteq \overline{B}$. Because $B$ is closed, $\overline{A} \subseteq {B}$ by \hyperref[lemma:topological closure of subset is subset of topological closure]{lemma \ref*{lemma:topological closure of subset is subset of topological closure}}. Thus $\overline{A} \subseteq \bigcap \{A \subseteq B: \text{B is closed in }X\}$. \\
+	On the other hand, $A'$ is a closed set containing $A$ by \hyperref[lemma:limit point set is closed]{lemma \ref*{lemma:limit point set is closed}}, so $\bigcap \{A \subseteq B: \text{B is closed in }X\} \subseteq \overline{A}$ by \hyperref[definition:closure 2]{2}. \\
+	Therefore, $\overline{A} = \bigcap \{A \subseteq B: \text{B is closed in }X\}$. 
+	\item[$2 \Rightarrow 1$:] On the one hand, $A'$ is a closed set containing $A$ by \hyperref[lemma:limit point set is closed]{lemma \ref*{lemma:limit point set is closed}}, so $\bigcap \{A \subseteq B: \text{B is closed in }X\} \subseteq \overline{A}$ by \hyperref[definition:closure 2]{2}. \\
+	On the other hand, proof by contradiction. We assume $\bigcap \{A \subseteq B: \text{B is closed in }X\} \subset \overline{A}$, then there exists a closed set $B \in \{A \subseteq B: \text{B is closed in }X\}$ such that $B \subset \overline{A}$. Let $C$ denote $\overline{A} \setminus B$, so for each $c \in C$, they are called a limit point of A. However, there exists an open set $X \setminus B$ such that $c \in X \setminus B$ for each $c \in C$ and $(X \setminus B) \cap A = \varnothing$, which violates \hyperref[definition:limit point]{definition \ref*{definition:limit point}}. Thus the assumption is wrong and $\bigcap \{A \subseteq B: \text{B is closed in }X\} \supseteq \overline{A}$.\\
+	Therefore, $\overline{A} = \bigcap \{A \subseteq B: \text{B is closed in }X\}$. \\
+	\item[$2 \Rightarrow 3$:] \hyperref[lemma:intersection of closed set is closed set]{lemma \ref*{lemma:intersection of closed set is closed set}} 
+	\item[$3 \Rightarrow 2$:] \hyperref[lemma:intersection of closed set is closed set]{lemma \ref*{lemma:intersection of closed set is closed set}} 
+\end{description}
+\end{proof}
+
+\begin{lemma}
+Given \hyperref[definition:closure 1]{1}, if $A \subseteq B$ in a topology space $(X, \mathcal{T})$, then $\overline{A} \subseteq \overline{B}$. \label{lemma:topological closure of subset is subset of topological closure} \label{lemma:topological closure of subset is subset of topological closure}
+\end{lemma}
+
+\begin{proof}
+(proof by contradiction)
+\end{proof}
+
+%\begin{lemma}
+%Given a topology space $(X, \mathcal{T})$, if $A \subseteq B \subseteq X$, then $\overline{A} \subseteq \overline{B}$. 
+%\end{lemma}
+%
+%\begin{proof}
+%To be continued
+%\end{proof}
+
+%%% -------------------------------------------------------------------
+%%% -------------------------------------------------------------------
+%%% This is where we create the bibliography.
+
+%\begin{bibdiv}
+%  	\begin{biblist}
+%  	
+%%\url(http://www.math.uwaterloo.ca/~nspronk/math453/AofC.pdf)\\
+%%\url(http://www.math.toronto.edu/ivan/mat327/docs/notes/11-choice.pdf)
+%
+%
+%	\end{biblist}
+%\end{bibdiv}
+
+%\bibliography{mybib}
+
+%\printbibliography
+
+
+\end{document}
