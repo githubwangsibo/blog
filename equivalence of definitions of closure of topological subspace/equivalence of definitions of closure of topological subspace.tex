@@ -199,7 +199,7 @@
 %\label{sec:intro}
 
 \begin{lemma}
-Given a topology space $(X, \mathcal{T})$. Infinite intersection of closed set in $\mathcal{T}$ is a closed set. \label{lemma:intersection of closed set is closed set}
+Given a topology space $(X, \mathcal{T})$. Infinite intersection of closed set in $X$ is a closed set. \label{lemma:intersection of closed set is closed set}
 \end{lemma}
 
 \begin{proof}
@@ -211,7 +211,7 @@ Given a topology space $(X, \mathcal{T})$, for $A \subseteq X$, a point $x \in X
 \end{definition}
 
 \begin{lemma}
-Given a topology space $(X, \mathcal{T})$ and $A \subseteq X$. Let $A'$ denote the set only containing all limit points of $A$, then $A \cup A'$ is closed.  \label{lemma:limit point set is closed}
+Given a topology space $(X, \mathcal{T})$ and $A \subseteq X$. If $A'$ is the set that only contains all limit points of $A$, then $A \cup A'$ is closed.  \label{lemma:limit point set is closed}
 \end{lemma}
 
 \begin{proof}
@@ -237,8 +237,8 @@ $\overline{A}$: closure of $A$ in a topology space $(X, \mathcal{T})$.
 	On the other hand, $A'$ is a closed set containing $A$ by \hyperref[lemma:limit point set is closed]{lemma \ref*{lemma:limit point set is closed}}, so $\bigcap \{A \subseteq B: \text{B is closed in }X\} \subseteq \overline{A}$ by \hyperref[definition:closure 2]{2}. \\
 	Therefore, $\overline{A} = \bigcap \{A \subseteq B: \text{B is closed in }X\}$. 
 	\item[$2 \Rightarrow 1$:] On the one hand, $A'$ is a closed set containing $A$ by \hyperref[lemma:limit point set is closed]{lemma \ref*{lemma:limit point set is closed}}, so $\bigcap \{A \subseteq B: \text{B is closed in }X\} \subseteq \overline{A}$ by \hyperref[definition:closure 2]{2}. \\
-	On the other hand, proof by contradiction. We assume $\bigcap \{A \subseteq B: \text{B is closed in }X\} \subset \overline{A}$, then there exists a closed set $B \in \{A \subseteq B: \text{B is closed in }X\}$ such that $B \subset \overline{A}$. Let $C$ denote $\overline{A} \setminus B$, so for each $c \in C$, they are called a limit point of A. However, there exists an open set $X \setminus B$ such that $c \in X \setminus B$ for each $c \in C$ and $(X \setminus B) \cap A = \varnothing$, which violates \hyperref[definition:limit point]{definition \ref*{definition:limit point}}. Thus the assumption is wrong and $\bigcap \{A \subseteq B: \text{B is closed in }X\} \supseteq \overline{A}$.\\
-	Therefore, $\overline{A} = \bigcap \{A \subseteq B: \text{B is closed in }X\}$. \\
+	On the other hand, proof by contradiction. We assume $\bigcap \{A \subseteq B: \text{B is closed in }X\} \subset \overline{A}$, then by \hyperref[lemma:intersection of closed set is closed set]{lemma \ref*{lemma:intersection of closed set is closed set}} there exists a closed set $B \in \{A \subseteq B: \text{B is closed in }X\}$ such that $A \subseteq B \subset \overline{A}$. Let $C$ denote $\overline{A} \setminus B$, so for each $c \in C$, they are called a limit point of A. However, there exists an open set $X \setminus B$ such that $c \in X \setminus B$ for each $c \in C$ and $(X \setminus B) \cap A = \varnothing$, which violates \hyperref[definition:limit point]{definition \ref*{definition:limit point}}. Thus the assumption is wrong and $\bigcap \{A \subseteq B: \text{B is closed in }X\} \supseteq \overline{A}$.\\
+	Therefore, $\overline{A} = \bigcap \{A \subseteq B: \text{B is closed in }X\}$. 
 	\item[$2 \Rightarrow 3$:] \hyperref[lemma:intersection of closed set is closed set]{lemma \ref*{lemma:intersection of closed set is closed set}} 
 	\item[$3 \Rightarrow 2$:] \hyperref[lemma:intersection of closed set is closed set]{lemma \ref*{lemma:intersection of closed set is closed set}} 
 \end{description}
@@ -249,7 +249,7 @@ Given \hyperref[definition:closure 1]{1}, if $A \subseteq B$ in a topology space
 \end{lemma}
 
 \begin{proof}
-(proof by contradiction)
+(using \hyperref[lemma:limit point set is closed]{lemma \ref*{lemma:limit point set is closed}}, proof by contradiction)
 \end{proof}
 
 %\begin{lemma}
