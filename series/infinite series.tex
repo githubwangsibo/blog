@@ -1,0 +1,264 @@
+\documentclass[12pt]{article}
+
+\begin{filecontents}[overwrite]{mybib.bib}
+\end{filecontents}
+
+%%% The following command loads the amsrefs package, which will be
+%%% used to create the bibliography:
+%\usepackage[lite]{amsrefs}
+
+%%% The following command defines the standard names for all of the
+%%% special symbols in the AMSfonts package, listed in
+%%% http://www.ctan.org/tex-archive/info/symbols/math/symbols.pdf
+\usepackage{amssymb}
+
+%%% The following commands allow you to use \Xy-pic to draw
+%%% commutative diagrams.  (You can omit the second line if you want
+%%% the default style of the nodes to be \textstyle.)
+\usepackage[all,cmtip]{xy}
+\let\objectstyle=\displaystyle
+
+\usepackage{hyperref}
+\hypersetup{
+%    bookmarks=true,         % show bookmarks bar?
+%    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+%    pdftoolbar=true,        % show Acrobat’s toolbar?
+%    pdfmenubar=true,        % show Acrobat’s menu?
+%    pdffitwindow=false,     % window fit to page when opened
+%    pdfstartview={FitH},    % fits the width of the page to the window
+%    pdftitle={My title},    % title
+%    pdfauthor={Author},     % author
+%    pdfsubject={Subject},   % subject of the document
+%    pdfcreator={Creator},   % creator of the document
+%    pdfproducer={Producer}, % producer of the document
+%    pdfkeywords={keyword1, key2, key3}, % list of keywords
+%    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=true,       % false: boxed links; true: colored links
+%    linkcolor=red,          % color of internal links (change box color with linkbordercolor)
+%    citecolor=green,        % color of links to bibliography
+%    filecolor=cyan,         % color of file links
+%    urlcolor=magenta        % color of external links
+}
+\usepackage{mathtools}
+\usepackage{url}
+
+\usepackage{amsthm}
+\let\proof\relax
+\let\endproof\relax
+
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\fancyfoot[C]{Page \thepage\ of \pageref*{LastPage}}
+\pagestyle{fancy}
+
+\usepackage{filemod}
+
+\usepackage{natbib} % for \citep macro
+\bibliographystyle{apalike}
+\usepackage{xurl}
+
+%\usepackage{enumitem,showframe}
+
+%%% If you'll be importing any graphics, uncomment the following
+%%% line.  (Note: The spelling is correct; the package graphicx.sty is
+%%% the updated version of the older graphics.sty.)
+% \usepackage{graphicx}
+
+%%% This part of the file (after the \documentclass command,
+%%% but before the \begin{document}) is called the ``preamble''.
+%%% This is where we put our macro definitions.
+
+%%% Comment out (or delete) any of these that you don't want to use.
+\newcommand{\tensor}{\otimes}
+\newcommand{\homotopic}{\simeq}
+\newcommand{\homeq}{\cong}
+\newcommand{\iso}{\approx}
+
+\DeclareMathOperator{\ho}{Ho}
+\DeclareMathOperator*{\colim}{colim}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\W}{\mathcal{W}}
+
+\newcommand{\itilde}{\tilde{\imath}}
+\newcommand{\jtilde}{\tilde{\jmath}}
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+
+%\newcommand{\updateinfo}[1][\today]{\par\vfill\hfill{\script‌​size\color{gray}Last updated on #1}}
+
+% The following causes equations to be numbered within sections
+\numberwithin{equation}{section}
+
+% We'll use the equation counter for all our theorem environments, so
+% that everything will be numbered in the same sequence.
+
+%       Theorem environments
+
+\theoremstyle{plain} %% This is the default, anyway
+\newtheorem{theorem}[equation]{Theorem}
+%\newtheorem{theorem}{Theorem}[]
+\newtheorem{cor}[equation]{Corollary}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{prop}[equation]{Proposition}
+\newtheorem{statement}[equation]{Statement}
+
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+%\newtheorem{definition}{Definition}
+%\newtheorem{proof}{{\bf Proof:}}{\hfill\rule{2mm}{2mm}}
+\newtheorem{example}[equation]{Example}
+
+\theoremstyle{remark}
+\newtheorem{rem}[equation]{Remark}
+%\newtheorem{example}[equation]{Example}
+\newtheorem{notation}[equation]{Notation}
+\newtheorem{terminology}[equation]{Terminology}
+
+\newenvironment{proof}{{\bf Proof:}}{\hfill\rule{2mm}{2mm}}
+\newenvironment{solution}{{\bf Solution:}}{\hfill\rule{2mm}{2mm}}
+
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+\begin{document}
+
+%%% In the title, use a double backslash "\\" to show a linebreak:
+%%% Use one of the following two forms:
+%%% \title{Text of the title}
+%%% or
+%%% \title[Short form for the running head]{Text of the title}
+\title{Infinite Series}
+
+
+%%% If there are multiple authors, they're described one at a time:
+%%% First author: \author{} \address{} \curraddr{} \email{} \thanks{}
+%%% Second author: \author{} \address{} \curraddr{} \email{} \thanks{}
+%%% Third author: \author{} \address{} \curraddr{} \email{} \thanks{}
+\author{Sibo WANG}
+
+%%% In the address, show linebreaks with double backslashes:
+%\address{}
+
+%%% Current address is optional.
+% \curraddr{}
+
+%%% Email address is optional.
+% \email{}
+
+
+%%% If there's a second author:
+% \author{}
+% \address{}
+% \curraddr{}
+% \email{}
+
+
+%%% To have the current date inserted, use \date{\today}:
+\date{}
+
+%%% To include an abstract, uncomment the following two lines and type
+%%% the abstract in between them:
+% \begin{abstract}
+% \end{abstract}
+
+
+\maketitle
+
+%%% To include a table of contents, uncomment the following line:
+% \tableofcontents
+
+
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%% Start the body of the paper here!  E.G., maybe use:
+%%% \section{Introduction}
+%%% \label{sec:intro}
+
+%%% For a numbered display, use
+%%% \begin{equation}
+%%%   \label{something}
+%%%   The display goes here
+%%% \end{equation}
+%%% and you can refer to it as \eqref{something}.
+
+%%% For an unnumbered display, use
+%%% \begin{equation*}
+%%%   The display goes here
+%%% \end{equation*}
+
+%%% To import a graphics file, you must have said
+%%% \usepackage{graphicx}
+%%% in the preamble (i.e., before the \begin{document}).
+%%% Putting it into a figure environment enables it to float to the
+%%% next page if there isn't enough room for it on the current page.
+%%% The \label command must come after the \caption command.
+% \begin{figure}[h]
+%   \includegraphics{filename}
+%   \caption{Some caption}
+%   \label{somelabel}
+% \end{figure}
+
+\section{Introduction}
+%\label{sec:intro}
+Infinite series is widely used in almost all aspects of mathematics. Several technique in infinite series with examples will be discussed.  
+
+\section{Example}
+%\label{sec:intro}
+
+\begin{example}
+Given a sequence \{$x_n$\} with an upper bound, $x_{n+1} > x_{n} - o(\frac{1}{n})$ for all $n \in \mathbb{N}$, show that \{$x_n$\} is convergent. 
+\end{example}
+
+\begin{proof}
+Since \{$x_n$\} has an upper bound and \href{https://en.wikipedia.org/wiki/Least-upper-bound_property}{least upper bound property}, the supremum of \{$x_n$\} exists. We denote $U$ is supremum of \{$x_n$\}
+$$U = \inf\limits_{k \in \mathbb{N}}\sup\limits_{n \geqslant k}\{x_n\}$$
+We construct a new sequence $\{y_n\}$ 
+$$\{y_n\} = \{y_k \mid y_k = \sup\limits_{n \geqslant k}\{x_n\} \text{ for all }k \in \mathbb{N}\}$$ 
+It is obvious that $y_n \geqslant x_n$ and $y_n \geqslant U$ for all $k \in \mathbb{N}$. \\
+In addition, $\{y_n\}$ is convergent to $U$. In another word, for each $\varepsilon > 0$, there exists $N_1(\varepsilon)$ such that $0 \leqslant y_n - U < \varepsilon$ for all $n > N_1(\varepsilon)$.\\
+Therefore, for each $\varepsilon > 0$, there exists $N_1(\varepsilon)$ such that $x_n - U < \varepsilon$ for all $n > N_1(\varepsilon)$. \\
+Since $\sum_{n=1}^{\infty} \frac{1}{n^s}$ is convergent with Re($s$) $>$ 1, we have $$x_n - x_m < O(\frac{1}{n})\text{ for all }m > n$$
+Because $U$ is supremum of \{$x_n$\}, we might have two conditions: 
+\begin{enumerate}
+	\item If for every $n \in \mathbb{N}$, there exists $m > n$ such that $x_m \geqslant U$. Then for each $\varepsilon > 0$, there exists $n = N_2(\varepsilon) \in \mathbb{N}$ such that $\frac{C}{N_2(\varepsilon)} < \varepsilon$ with constant $C$ and $0 \leqslant x_n - U < \varepsilon$.\\
+	Then for each $\varepsilon > 0$, there exists $n = N_2(\varepsilon)$ such that $U - x_m \leqslant x_n - x_m < O(\frac{1}{n}) < \frac{C}{N_2(\varepsilon)} < \varepsilon$ for all $m > n$. \\
+	Therefore, for each $\varepsilon > 0$, there exists $N_1(\varepsilon)$ and $N_2(\varepsilon)$ such that $\lvert x_n - U \rvert< \varepsilon$ for all $n > \max\{N_1(\varepsilon), N_2(\varepsilon)\}$.
+	
+	\item If there exists $L \in \mathbb{N}$ such that $x_k < U$ for all $k \geqslant L$. Then we have an infinite sub-sequence \{$z_n$\}
+	$$\{z_n\} = \{x_k \mid x_k \in \{x_n\}\text{ and }k \geqslant L \}$$ 
+	and
+	$$\inf\limits_{k \in \mathbb{N}}\sup\limits_{n \geqslant k}\{z_n\} = \inf\limits_{k \in \mathbb{N}}\sup\limits_{n \geqslant k}\{x_n\} = U$$
+	Thus for each $\varepsilon > 0$, there exists $n = N_3(\varepsilon)$ such that $U - z_n < \varepsilon$ and $z_n - z_m < O(\frac{1}{n}) \leqslant \frac{C}{n}$ with constant $C$ for all $m > n$. \\
+	Therefore for each $\varepsilon > 0$, there exists $n = \max\{\lceil \frac{2C}{\varepsilon} \rceil, N_3(\frac{\varepsilon}{2})\}$ such that $C$ is constant and $U - z_m = U - z_n + z_n - z_m < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$ for all $m > n$. 
+	Therefore for each $\varepsilon > 0$, there exists $n = \max\{\lceil \frac{2C}{\varepsilon} \rceil + L, N_3(\frac{\varepsilon}{2}) + L\}$ such that $C$ is constant and $\lvert U - x_m \rvert < \varepsilon$ for all $m > n$. 
+\end{enumerate}
+
+\end{proof}
+
+%%% -------------------------------------------------------------------
+%%% -------------------------------------------------------------------
+%%% This is where we create the bibliography.
+
+%\begin{bibdiv}
+%  	\begin{biblist}
+%  	
+%
+%
+%	\end{biblist}
+%\end{bibdiv}
+
+%\bibliography{mybib}
+
+%\printbibliography
+
+
+\end{document}
