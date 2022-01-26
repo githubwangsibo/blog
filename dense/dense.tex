@@ -1,0 +1,266 @@
+\documentclass[12pt]{article}
+
+\begin{filecontents}[overwrite]{mybib.bib}
+\end{filecontents}
+
+%%% The following command loads the amsrefs package, which will be
+%%% used to create the bibliography:
+%\usepackage[lite]{amsrefs}
+
+%%% The following command defines the standard names for all of the
+%%% special symbols in the AMSfonts package, listed in
+%%% http://www.ctan.org/tex-archive/info/symbols/math/symbols.pdf
+\usepackage{amssymb}
+
+%%% The following commands allow you to use \Xy-pic to draw
+%%% commutative diagrams.  (You can omit the second line if you want
+%%% the default style of the nodes to be \textstyle.)
+\usepackage[all,cmtip]{xy}
+\let\objectstyle=\displaystyle
+
+\usepackage{hyperref}
+\hypersetup{
+%    bookmarks=true,         % show bookmarks bar?
+%    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+%    pdftoolbar=true,        % show Acrobat’s toolbar?
+%    pdfmenubar=true,        % show Acrobat’s menu?
+%    pdffitwindow=false,     % window fit to page when opened
+%    pdfstartview={FitH},    % fits the width of the page to the window
+%    pdftitle={My title},    % title
+%    pdfauthor={Author},     % author
+%    pdfsubject={Subject},   % subject of the document
+%    pdfcreator={Creator},   % creator of the document
+%    pdfproducer={Producer}, % producer of the document
+%    pdfkeywords={keyword1, key2, key3}, % list of keywords
+%    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=true,       % false: boxed links; true: colored links
+%    linkcolor=red,          % color of internal links (change box color with linkbordercolor)
+%    citecolor=green,        % color of links to bibliography
+%    filecolor=cyan,         % color of file links
+%    urlcolor=magenta        % color of external links
+}
+\usepackage{mathtools}
+\usepackage{url}
+
+\usepackage{amsthm}
+\let\proof\relax
+\let\endproof\relax
+
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\fancyfoot[C]{Page \thepage\ of \pageref*{LastPage}}
+\pagestyle{fancy}
+
+\usepackage{filemod}
+
+\usepackage{natbib} % for \citep macro
+\bibliographystyle{apalike}
+\usepackage{xurl}
+
+%\usepackage{enumitem,showframe}
+
+%%% If you'll be importing any graphics, uncomment the following
+%%% line.  (Note: The spelling is correct; the package graphicx.sty is
+%%% the updated version of the older graphics.sty.)
+% \usepackage{graphicx}
+
+%%% This part of the file (after the \documentclass command,
+%%% but before the \begin{document}) is called the ``preamble''.
+%%% This is where we put our macro definitions.
+
+%%% Comment out (or delete) any of these that you don't want to use.
+\newcommand{\tensor}{\otimes}
+\newcommand{\homotopic}{\simeq}
+\newcommand{\homeq}{\cong}
+\newcommand{\iso}{\approx}
+
+\DeclareMathOperator{\ho}{Ho}
+\DeclareMathOperator*{\colim}{colim}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\W}{\mathcal{W}}
+
+\newcommand{\itilde}{\tilde{\imath}}
+\newcommand{\jtilde}{\tilde{\jmath}}
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+
+%\newcommand{\updateinfo}[1][\today]{\par\vfill\hfill{\script‌​size\color{gray}Last updated on #1}}
+
+% The following causes equations to be numbered within sections
+\numberwithin{equation}{section}
+
+% We'll use the equation counter for all our theorem environments, so
+% that everything will be numbered in the same sequence.
+
+%       Theorem environments
+
+\theoremstyle{plain} %% This is the default, anyway
+\newtheorem{theorem}[equation]{Theorem}
+%\newtheorem{theorem}{Theorem}[]
+\newtheorem{cor}[equation]{Corollary}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{prop}[equation]{Proposition}
+\newtheorem{statement}[equation]{Statement}
+
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+%\newtheorem{definition}{Definition}
+%\newtheorem{proof}{{\bf Proof:}}{\hfill\rule{2mm}{2mm}}
+\newtheorem{example}[equation]{Example}
+\newtheorem{warning}[equation]{Warning}
+
+\theoremstyle{remark}
+\newtheorem{rem}[equation]{Remark}
+%\newtheorem{example}[equation]{Example}
+\newtheorem{notation}[equation]{Notation}
+\newtheorem{terminology}[equation]{Terminology}
+
+\newenvironment{proof}{{\bf Proof:}}{\hfill\rule{2mm}{2mm}}
+\newenvironment{solution}{{\bf Solution:}}{\hfill\rule{2mm}{2mm}}
+
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+\begin{document}
+
+%%% In the title, use a double backslash "\\" to show a linebreak:
+%%% Use one of the following two forms:
+%%% \title{Text of the title}
+%%% or
+%%% \title[Short form for the running head]{Text of the title}
+\title{Dense}
+
+
+%%% If there are multiple authors, they're described one at a time:
+%%% First author: \author{} \address{} \curraddr{} \email{} \thanks{}
+%%% Second author: \author{} \address{} \curraddr{} \email{} \thanks{}
+%%% Third author: \author{} \address{} \curraddr{} \email{} \thanks{}
+\author{Sibo WANG}
+
+%%% In the address, show linebreaks with double backslashes:
+%\address{}
+
+%%% Current address is optional.
+% \curraddr{}
+
+%%% Email address is optional.
+% \email{}
+
+
+%%% If there's a second author:
+% \author{}
+% \address{}
+% \curraddr{}
+% \email{}
+
+
+%%% To have the current date inserted, use \date{\today}:
+\date{}
+
+%%% To include an abstract, uncomment the following two lines and type
+%%% the abstract in between them:
+% \begin{abstract}
+% \end{abstract}
+
+
+\maketitle
+
+%%% To include a table of contents, uncomment the following line:
+% \tableofcontents
+
+
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
+%%% Start the body of the paper here!  E.G., maybe use:
+%%% \section{Introduction}
+%%% \label{sec:intro}
+
+%%% For a numbered display, use
+%%% \begin{equation}
+%%%   \label{something}
+%%%   The display goes here
+%%% \end{equation}
+%%% and you can refer to it as \eqref{something}.
+
+%%% For an unnumbered display, use
+%%% \begin{equation*}
+%%%   The display goes here
+%%% \end{equation*}
+
+%%% To import a graphics file, you must have said
+%%% \usepackage{graphicx}
+%%% in the preamble (i.e., before the \begin{document}).
+%%% Putting it into a figure environment enables it to float to the
+%%% next page if there isn't enough room for it on the current page.
+%%% The \label command must come after the \caption command.
+% \begin{figure}[h]
+%   \includegraphics{filename}
+%   \caption{Some caption}
+%   \label{somelabel}
+% \end{figure}
+
+\section{Motivation}
+%\label{sec:intro}
+\textit{Dense} is a crucial concept in topology and analysis. Several related theorems will be discussed. 
+
+\section{Separable}
+\begin{theorem}
+If a normed vector space has a \textit{schauder basis}, then it is \textit{separable}. 
+\end{theorem}
+
+\begin{proof}
+Given a normed vector space ($X$, $\lVert \cdot \rVert_{X}$) on field $\mathbb{F}$, we have to construct a subtle subspace ($Y$, $\lVert \cdot \rVert_{X}$) and show that $Y \subset X$  is countable and dense. \\
+We use $\{e_n\}$ to denote the schauder basis of ($X$, $\lVert \cdot \rVert_{X}$). 
+It is true that there exists a dense and countable subset $\mathbb{G} \subset \mathbb{F}$. \\
+Given basis $\{e_n\}$, we define the subset $Y$
+$$Y = \bigcup_{n \in \mathbb{N}}\{y_n \mid y_n = \sum_{k=1}^{n} g_k e_k \text{ and } g_k \in \mathbb{G}\}$$
+The function $\bigcup_{n \in \mathbb{N}} G^{n} \to Y$ is bijective and $G^{n}$ is countable for all $n \in \mathbb{N}$. Thus $Y$ is countable. \\
+Next, it suffices to show $Y$ is dense. \\
+Due to schauder basis $\{e_n\}$, for each $x \in X$ and $\varepsilon > 0$, there exist $N_1(\varepsilon)$ and $\{f_k(\varepsilon)\}$ such that $\lVert x - \sum_{k=1}^{n} f_k e_k \rVert_{X} < \varepsilon$ and $f_k \in \mathbb{F}$ if $n > N_1(\varepsilon)$ for n. \\
+Moreover, because $\mathbb{G}$ is dense, for each $f_k \in \mathbb{F}$, $k \in \mathbb{N}$ and $\varepsilon > 0$, there exists $g_k(\varepsilon) \in \mathbb{G}$ such that $\lvert f_k - g_k \rvert < \varepsilon$. \\
+Given $x$ and $\{e_n\}$, for each $\varepsilon > 0$, there exist $N_1(\frac{\varepsilon}{2})$, $\{\frac{\varepsilon}{2N_1(\frac{\varepsilon}{2})\lVert e_k \rVert_{X}}\}$ and $\{f_k(\frac{\varepsilon}{2})\}$ such that
+\begin{equation*}
+\begin{split}
+\lVert x - \sum_{k=1}^{n} g_k e_k \rVert_{X}
+	& = \lVert x - \sum_{k=1}^{n} f_k e_k + \sum_{k=1}^{n} f_k e_k - \sum_{k=1}^{n} g_k e_k \rVert_{X} \\
+	& \leqslant \lVert x - \sum_{k=1}^{n} f_k e_k \rVert_{X} + \lVert \sum_{k=1}^{n} f_k e_k - \sum_{k=1}^{n} g_k e_k \rVert_{X}\\
+	& < \frac{\varepsilon}{2} + \sum_{k=1}^{n} \lvert f_k - g_k \rvert \lVert e_k \rVert_{X}\\
+	& < \frac{\varepsilon}{2} + \frac{\varepsilon}{2}\\
+	&= \varepsilon
+\end{split}
+\end{equation*}
+if $n > N_1(\frac{\varepsilon}{2})$ and $\lvert f_k - g_k \rvert < \frac{\varepsilon}{2N_1(\frac{\varepsilon}{2})\lVert e_k \rVert_{X}}$ for $n$ and $\{g_k\}$. \\
+Therefore $Y$ is a dense and countable subset and ($X$, $\lVert \cdot \rVert_{X}$) is separable. 
+\end{proof}
+
+\begin{warning}
+The above normed vector space ($X$, $\lVert \cdot \rVert_{X}$) is not necessary to be \textit{complete}. 
+\end{warning}
+
+%%% -------------------------------------------------------------------
+%%% -------------------------------------------------------------------
+%%% This is where we create the bibliography.
+
+%\begin{bibdiv}
+%  	\begin{biblist}
+%  	
+%
+%
+%	\end{biblist}
+%\end{bibdiv}
+
+%\bibliography{mybib}
+
+%\printbibliography
+
+
+\end{document}
