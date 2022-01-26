@@ -32,6 +32,27 @@
 \let\objectstyle=\displaystyle
 
 \usepackage{hyperref}
+\hypersetup{
+%    bookmarks=true,         % show bookmarks bar?
+%    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+%    pdftoolbar=true,        % show Acrobat’s toolbar?
+%    pdfmenubar=true,        % show Acrobat’s menu?
+%    pdffitwindow=false,     % window fit to page when opened
+%    pdfstartview={FitH},    % fits the width of the page to the window
+%    pdftitle={My title},    % title
+%    pdfauthor={Author},     % author
+%    pdfsubject={Subject},   % subject of the document
+%    pdfcreator={Creator},   % creator of the document
+%    pdfproducer={Producer}, % producer of the document
+%    pdfkeywords={keyword1, key2, key3}, % list of keywords
+%    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=true,       % false: boxed links; true: colored links
+%    linkcolor=red,          % color of internal links (change box color with linkbordercolor)
+%    citecolor=green,        % color of links to bibliography
+%    filecolor=cyan,         % color of file links
+%    urlcolor=magenta        % color of external links
+}
+
 \usepackage{mathtools}
 \usepackage{url}
 
@@ -390,7 +411,7 @@ To be continued
 \end{statement}
 
 \begin{theorem}
-\hyperref[statement:Hausdorff maximal principle]{Hausdorff maximal principle} implies that \hyperref[statement:Every vector space has a basis]{every vector space has a basis}.
+\hyperref[statement:Hausdorff maximal principle]{Hausdorff maximal principle} implies \hyperref[statement:Every vector space has a basis]{Statement \ref*{statement:Every vector space has a basis}}. 
 \end{theorem}
 
 \begin{proof}
@@ -399,7 +420,8 @@ $$\mathcal{A} = \{W \mid W \subseteq V\text{ and }W\text{ is a linearly independ
 It is obvious that ($\mathcal{A}$, $\subset$) is a partially order set. From \hyperref[statement:Hausdorff maximal principle]{hausdorff maximal principle}, we use $\mathcal{M}$ to denote the maximal chain in $\mathcal{A}$. 
 $$\mathcal{S} = \bigcup_{m \in \mathcal{M}}m$$
 We use $\mathcal{N}$ to denote the span of $\mathcal{S}$. It is true that $\mathcal{S} \subseteq \mathcal{N} \subseteq V$.  \\
-Suppose $\mathcal{N} \subset V$, then there exists $v \in \mathcal{A}$ and $v \in V$ such that $v \notin \mathcal{S}$ and cannot be a linear combination of the elements in $\mathcal{S}$. So $\mathcal{S} \cup \{v\} \in \mathcal{A}$ and $\mathcal{M} \cup \{ \mathcal{S} \cup \{v\}\}$ is a chain in $\mathcal{A}$ such that $\mathcal{M} \subset \mathcal{M} \cup \{ \mathcal{S} \cup \{v\}\}$, which violates hausdorff maximal principle. Thus the assumption is wrong. \\
+Suppose $\mathcal{N} \subset V$, then there exists $v \in V$ such that $v \in \mathcal{A}$ and $v \notin \mathcal{S}$. In another word, $v$ cannot be a linear combination of the elements in $\mathcal{S}$. 
+So $\mathcal{S} \cup \{v\} \in \mathcal{A}$ and $\mathcal{M} \cup \{ \mathcal{S} \cup \{v\}\}$ is a chain in $\mathcal{A}$ such that $\mathcal{M} \subset \mathcal{M} \cup \{ \mathcal{S} \cup \{v\}\}$, which violates \hyperref[statement:Hausdorff maximal principle]{hausdorff maximal principle}. Thus the assumption is wrong. \\
 Therefore, $\mathcal{N} = V$ and $\mathcal{S}$ is the basis of $V$. 
 \end{proof}
 
