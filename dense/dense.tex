@@ -246,6 +246,32 @@ Therefore $Y$ is a dense and countable subset and ($X$, $\lVert \cdot \rVert_{X}
 The above normed vector space ($X$, $\lVert \cdot \rVert_{X}$) is not necessary to be \textit{complete}. 
 \end{warning}
 
+\begin{example}
+Given a normed vector space ($X$, $\lVert \cdot \rVert_{X}$), $X = C^{0}[0, 1]$ and $\lVert f \rVert_{X} = \lVert f \rVert_{2} = {(\int_{0}^{1} {f(t)}^{2} \, dt)}^{\frac{1}{2}}$. Then ($X$, $\lVert \cdot \rVert_{X}$) is not complete. 
+\end{example}
+
+\begin{proof}
+We have the sequence $\{f_n\} \subset X$
+\begin{equation*}
+    f_n(x) = 
+    \begin{cases*}
+		0  & $x \in [0, \frac{1}{2} - \frac{1}{2^{n}})$ \\
+		(x - \frac{1}{2})2^{n-1} + \frac{1}{2}      & $x \in [\frac{1}{2} - \frac{1}{2^{n}}, \frac{1}{2} + \frac{1}{2^{n}}]$ \\
+     	1       & $x \in (\frac{1}{2^{n}} + 2^{-n}, 1]$
+    \end{cases*}
+\end{equation*}
+It is obvious that $\{f_n\}$ is convergent to $f$
+\begin{equation*}
+    f(x) = 
+    \begin{cases*}
+		0  & $x \in [0, \frac{1}{2})$ \\
+		\frac{1}{2}      & $x = \frac{1}{2}$ \\
+     	1       & $x \in (\frac{1}{2}, 1]$
+    \end{cases*}
+\end{equation*}
+and $f \notin X$. 
+\end{proof}
+
 %%% -------------------------------------------------------------------
 %%% -------------------------------------------------------------------
 %%% This is where we create the bibliography.
